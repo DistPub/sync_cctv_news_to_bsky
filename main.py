@@ -79,6 +79,17 @@ def send_post(client, post, embed, langs):
             raise error
 
 
+def git_commit():
+    os.system('git config --global user.email "xiaopengyou@live.com"')
+    os.system('git config --global user.name "robot auto"')
+    os.system('git add .')
+    os.system('git commit -m "update from robot"')
+
+
+def git_push():
+    os.system('git push')
+
+
 def main(lm, service, username, password, dev, date):
     assert lm in lm_ids
     beijing_tz = timezone(timedelta(hours=8))
