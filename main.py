@@ -38,7 +38,7 @@ def fetch_news(lm_id, date):
             continue
 
         news_box.append({
-            'title': news["brief"],
+            'title': news["brief"] or news['title'],
             'time': news['time'],
             'url': news['url'],
             'imgurl': news['image']
