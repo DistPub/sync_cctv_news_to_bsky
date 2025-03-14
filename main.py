@@ -32,7 +32,7 @@ def fetch_news(lm_id, date):
         return
 
     news_box = []
-
+    print(json.dumps(news_data))
     for news in news_data['data']['list']:
         if news['mode'] == 0:
             continue
