@@ -116,7 +116,8 @@ def main(lm, service, username, password, dev, date):
         post_box = post_box[:3]
 
     client = Client(base_url=service if service != 'default' else None)
-    client.login(username, password)
+    session = client._get_and_set_session(username, password, None)
+    client.me = client.app.bsky.actor.get_profile(models.AppBskyActorGetProfile.Params(actor=session.handle), headers={'atproto-proxy': 'did:web:fatesky.hukoubook.com#fatesky_appview'})
     post_status_error = False
     updated = False
 
@@ -165,3 +166,4 @@ if __name__ == '__main__':
     parser.add_argument("--date", help='date')
     args = parser.parse_args()
     main(args.lm, args.service, args.username, args.password, args.dev, args.date)
+
