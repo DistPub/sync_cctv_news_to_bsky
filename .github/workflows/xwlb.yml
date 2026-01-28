@@ -19,4 +19,4 @@ jobs:
           atproto_username: ${{secrets.ATPROTO_USERNAME_XWLB}}
           atproto_password: ${{secrets.ATPROTO_PASSWORD_XWLB}}
         run: >
-          python main.py --lm xwlb --service default --username "$atproto_username" --password "$atproto_password"
+          python main.py --lm xwlb --service "https://network.hukoubook.com" --username "$atproto_username" --password "$atproto_password"
